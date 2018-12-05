@@ -7,5 +7,5 @@
 ## Instructions
 
 1) Open the index.html file.
-2) Go through the instruction on how to play the game.
+2) Go through the instructions on how to play the game.
 3) Enjoy.
