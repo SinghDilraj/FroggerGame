@@ -21,6 +21,7 @@ gulp.task('appjs', () => {
     .pipe(gulp.dest('./src/js/babel/'))
 })
 
+// NOTE:- engine.js cannot be minimied using uglify. it throws an erorr. 
 gulp.task('minjs', () => {
   return gulp.src(['./src/js/resources.js', './src/js/babel/app.js'])
     .pipe(minJs())
@@ -39,14 +40,14 @@ gulp.task('image', () => {
     .pipe(gulp.dest('./dist/images/'))
 })
 
-// gulp.task('html', () => {
-//   return gulp.src('./src/*.html')
-//     .pipe(gulp.dest('./dist/'))
-// })
+gulp.task('html', () => {
+  return gulp.src('./src/*.html')
+    .pipe(gulp.dest('./dist/'))
+})
 
-gulp.task('default', ['css', 'appjs', 'minjs', 'js', 'image'], () => {
+gulp.task('default', ['css', 'appjs', 'minjs', 'js', 'image', 'html'], () => {
   gulp.watch('./src/css/**/*.css', ['css'])
   gulp.watch('./src/js/app.js', ['appjs'])
   gulp.watch('./src/js/**/*.js', ['minjs', 'js'])
-  // gulp.watch('./src/*.html', ['html'])
+  gulp.watch('./src/*.html', ['html'])
 })
